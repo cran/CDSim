@@ -88,3 +88,22 @@ To demonstrate a quick plot, here’s the maximum temperature series of the firs
 ```{r}
 plot_station_timeseries(sim,'Station_1', var = "Avg.Tx")
 ```
+<h2 style="font-size:160%; font-weight:bold;"> Validation of Simulated Climate Data </h2>
+
+To assess the physical realism and statistical consistency of the simulated climate data, CDSim provides a validation framework.
+
+The function `validate_climate_internal()` performs a series of diagnostic checks on the simulated dataset, including:
+
+- physical constraints (e.g., temperature bounds and rainfall non-negativity)
+- distributional properties (e.g., variability and skewness)
+- temporal dependence (autocorrelation)
+- inter-variable relationships (e.g., rainfall–temperature coupling)
+- trend behavior and seasonal patterns
+
+```{r}
+validation <- validate_climate_internal(sim)
+validation
+```
+In addition, CDSim supports external validation against observed datasets using the function `validate_climate()`. This allows users to compare simulated data with real-world observations for further evaluation of model performance.
+
+The validation framework is particularly useful in scenarios where observed data are unavailable, providing diagnostic assurance that the simulated outputs adhere to known climatological principles.

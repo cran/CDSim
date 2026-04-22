@@ -27,3 +27,7 @@ write_station_netcdf(sim, out_nc = "climate_data.nc")
 ## -----------------------------------------------------------------------------
 plot_station_timeseries(sim,'Station_1', var = "Avg.Tx")
 
+## -----------------------------------------------------------------------------
+validation <- validate_climate_internal(sim)
+validation
+
